@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="recommender">
+  <head>
+  <meta charset="utf-8">
+      <title>Movie Recommender</title>
+      
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="app/site.js"></script>
+  </head>
+  <body>
+    <div ng-controller="ratingController">
+        <button type="button" class="btn btn-primary" ng-hide="beginRating" ng-click="randomMovies()">Show Me Movies</button>
+    </div>
+    
+  </body>
+</html>
+
