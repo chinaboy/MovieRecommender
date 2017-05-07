@@ -5,14 +5,77 @@
       <title>Movie Recommender</title>
       
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
       <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+      <script src="bower_components/angular-material/angular-material.min.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.min.js"></script>
       <script src="app/site.js"></script>
   </head>
-  <body>
+
+<body layout="column">
+
+  <!-- Container #1 (see wireframe) -->
+  <md-toolbar layout="row" class="md-toolbar-tools">
+    <h1>Angular Material - Starter App</h1>
+  </md-toolbar>
+
+  <!-- Container #2 -->
+  <div flex layout="row">
+
+    <!-- Container #3 -->
+    <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+      <md-list>
+        <!-- List item #1 -->
+        <md-list-item>
+          <md-button>
+            <md-icon md-svg-src="./assets/svg/avatar-1.svg" class="avatar"></md-icon>
+            Lia Luogo
+          </md-button>
+        </md-list-item>
+
+        <!-- List item #2 -->
+        <md-list-item>
+          <md-button>
+            <md-icon md-svg-src="./assets/svg/avatar-4.svg" class="avatar"></md-icon>
+            Lawrence Ray
+          </md-button>
+        </md-list-item>
+
+      </md-list>
+    </md-sidenav>
+
+    <!-- Container #4 -->
+    <md-content flex id="content">
+      <!-- User details sample -->
+
+      <md-icon md-svg-src="./assets/svg/avatar-1.svg" class="avatar"></md-icon>
+      <h2>Lia Luogo</h2>
+      <p>
+        I love cheese...
+      </p>
+    </md-content>
+  </div>
+
+ 
+  <div ng-cloak>
     <div ng-controller="ratingController">
         <button type="button" class="btn btn-primary" ng-hide="beginRating" ng-click="randomMovies()">Show Me Movies</button>
     </div>
-    
+  
+    <div class="md-card-panel">
+      <md-card>
+        <img class="" src="https://s3-us-west-1.amazonaws.com/qzhoutests3/movie_poster/Batman_Returns.jpg" class="md-card-image" alt="Batman Returns">
+        <md-card-content>
+          <a href="">{{"Batman Returns"}}</a>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+         <md-button>Action 1</md-button>
+         <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
   </body>
 </html>
 

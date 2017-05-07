@@ -1,29 +1,24 @@
 #import daemon
-
+import zmq
 from time import sleep
 from daemonize import Daemonize
-import pika
 
 pid = "/tmp/test.pid"
 
-def callback(ch, method, properties, body):
-    print(" [x] Received %r" % body)
-
 
 def listen_queue():
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
-    channel = connection.channel()
-    channel.queue_declare(queue='hello')
-
-    channel.basic_consume(callback, queue='hello', no_ack=True)
-    channel.start_consuming()
-
+    ctx = zmq.Context.instance()
+    s = ctx.socket(zmq.PULL)
+    s.connect("tcp://127.0.0.1:3000")
+    o = s.recv_json()
+    print(o)
 
 def main():
     while True:
         listen_queue()
         sleep(5)
 
-daemon = Daemonize(app="test_app", pid=pid, action=main)
-daemon.start()
-
+if __name__ == "__main__":
+    #daemon = Daemonize(app="test_app", pid=pid, action=main)
+    #daemon.start()
+    main()

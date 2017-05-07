@@ -1,4 +1,4 @@
-var myModule = angular.module("recommender", [] ).controller('ratingController', 
+var myModule = angular.module("recommender", ['ngAnimate', 'ngAria', 'ngMaterial'] ).controller('ratingController', 
     ['$scope', '$http', function($scope, $http){
         $scope.beging_rating = false;
         
